@@ -1,10 +1,8 @@
 # Script to train machine learning model.
 
-from sklearn.model_selection import train_test_split
-
-# Add the necessary imports for the starter code.
 import pandas as pd
-import numpy as np
+from sklearn.model_selection import train_test_split
+from functions.preprocessing import process_data
 
 # Add code to load in the data.
 data = pd.read_csv('./data/census_income/adult.data', header=None)
