@@ -13,7 +13,7 @@ test_data = pd.read_csv('./data/census_income/adult.test', header=None, skiprows
 # Get column names
 meta = pd.read_table('./data/census_income/adult.names', header=None)
 col_list = meta.iloc[93:][0].apply(lambda x: x.split(':')[0]).values.tolist()
-col_list.append('class')
+col_list.append('salary')
 data.columns = col_list
 test_data.columns = col_list
 
