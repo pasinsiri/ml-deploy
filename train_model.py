@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 import logging
+import joblib
 from functions.preprocessing import process_data
 
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
@@ -47,4 +48,9 @@ cv = KFold(n_splits=10, shuffle=True, random_state=42)
 clf = GradientBoostingClassifier(n_estimators=50)
 clf.fit(X_train, y_train)
 scores = cross_val_score(clf, X_train, y_train, scoring='accuracy', cv=cv)
-logging.info(f'Average accuracy from cross-validation = {np.mean(scores)}')
+logging.info(f'Average accuracy from cross-validation on training data = {np.mean(scores)}')
+joblib.dump(clf, 'model/model.joblib')
+joblib.dump(encoder, 'model/encoder.joblib')
+joblib.dump(lb, 'model/lb.joblib')
+
+# Evaluate model on test data
