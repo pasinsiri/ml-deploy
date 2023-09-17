@@ -14,13 +14,13 @@ def data():
 
 def test_null(data):
     """
-    Data is assumed to have no null values
+    Cleaned data is assumed to have no null values
     """
     assert data.shape == data.dropna().shape
 
 
 def test_question_mark(data):
     """
-    Data is assumed to have no question marks value
+    Cleaned data is assumed to have no question marks value
     """
     assert '?' not in data.values
