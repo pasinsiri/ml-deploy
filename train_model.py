@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import logging
 import joblib
+from functions.cleaning import get_categorical_columns, clean_data
 from functions.preprocessing import process_data
 
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
@@ -12,19 +13,21 @@ from sklearn.ensemble import GradientBoostingClassifier
 # Add code to load in the data.
 raw_df = pd.read_csv('./data/census.csv', skipinitialspace=True)
 
-cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country",
-]
+# cat_features = [
+#     "workclass",
+#     "education",
+#     "marital-status",
+#     "occupation",
+#     "relationship",
+#     "race",
+#     "sex",
+#     "native-country",
+# ]
+cat_features = get_categorical_columns()
+df = clean_data(raw_df)
 
 X_train, y_train, encoder, lb = process_data(
-    raw_df, categorical_features=cat_features, label="salary", training=True
+    df, categorical_features=cat_features, label="salary", training=True
 )
 
 # Train and save a model.
