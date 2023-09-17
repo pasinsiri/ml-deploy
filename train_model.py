@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split, KFold, cross_val_score
 from sklearn.ensemble import GradientBoostingClassifier
 
 # Add code to load in the data.
-data = pd.read_csv('./data/census_income/adult.data', header=None)
+train_data = pd.read_csv('./data/census_income/adult.data', header=None)
 test_data = pd.read_csv('./data/census_income/adult.test', header=None, skiprows=1)
 
 # Get column names
@@ -20,8 +20,6 @@ col_list.append('salary')
 data.columns = col_list
 test_data.columns = col_list
 
-# Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = train_test_split(data, test_size=0.20)
 
 cat_features = [
     "workclass",
@@ -35,12 +33,12 @@ cat_features = [
 ]
 
 X_train, y_train, encoder, lb = process_data(
-    train, categorical_features=cat_features, label="salary", training=True
+    train_data, categorical_features=cat_features, label="salary", training=True
 )
 
 # Process the test data with the process_data function.
 X_test, y_test, encoder, lb = process_data(
-    test, categorical_features=cat_features, label="salary", training=False
+    test_data, categorical_features=cat_features, label="salary", training=False
 )
 
 # Train and save a model.
