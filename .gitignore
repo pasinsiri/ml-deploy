@@ -157,6 +157,7 @@ data
 
 # local files (do not need tracking)
 first.ipynb
+note.txt
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
