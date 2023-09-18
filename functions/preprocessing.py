@@ -29,7 +29,6 @@ def process_data(data, cat_cols: list, training: bool, label: str = None, encode
         x_cat = encoder.transform(x_cat)
         try:
             y = lb.transform(y.values).ravel()
-        # Catch the case where y is None because we're doing inference.
         except AttributeError:
             logging.info('y is not passed. it is ignored since training is set to False. Job will continue')
 
