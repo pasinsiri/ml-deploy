@@ -43,9 +43,9 @@ def slicing():
     df = pd.read_csv("data/prepared/census.csv")
     _, test = train_test_split(df, test_size=0.20)
 
-    trained_model = joblib.load("data/model/model.joblib")
-    encoder = joblib.load("data/model/encoder.joblib")
-    lb = joblib.load("data/model/lb.joblib")
+    trained_model = joblib.load("model/model.joblib")
+    encoder = joblib.load("model/encoder.joblib")
+    lb = joblib.load("model/lb.joblib")
 
     cat_cols = get_categorical_columns()
     slice_values = []
