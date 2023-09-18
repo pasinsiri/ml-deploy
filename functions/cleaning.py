@@ -26,4 +26,4 @@ def clean_data(raw_df):
         df[c] = df[c].str.strip()
         df[c] = df[c].replace('?', None)
 
-    return df
+    return df.dropna()
