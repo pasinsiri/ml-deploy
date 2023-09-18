@@ -11,7 +11,7 @@ from functions.preprocessing import process_data
 @pytest.fixture
 def data():
     """
-    Get dataset
+    Load dataset
     """
     df = pd.read_csv('./data/census.csv')
     return df
