@@ -5,7 +5,7 @@ from cleaning import clean_data
 @pytest.fixture
 def data():
     """
-    Get dataset
+    Load dataset
     """
     df = pd.read_csv("data/raw/census.csv", skipinitialspace=True)
     df = clean_data(df)
