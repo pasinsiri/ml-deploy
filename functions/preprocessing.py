@@ -37,7 +37,8 @@ def process_data(
             y = lb.transform(y.values).ravel()
         except AttributeError:
             logging.info(
-                'y is not passed. it is ignored since training is set to False')
+                'y is not passed. it is ignored  \
+                    since training is set to False')
 
     x = np.concatenate([x_cat, x_num], axis=1)
     return x, y, encoder, lb
