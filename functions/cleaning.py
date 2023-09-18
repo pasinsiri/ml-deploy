@@ -1,5 +1,6 @@
-
-
+"""
+Clean values
+"""
 
 def get_categorical_columns():
     cat_cols = [
