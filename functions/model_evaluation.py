@@ -8,6 +8,7 @@ from .preprocessing import process_data
 # from joblib import load
 # import src.common_functions
 
+
 def calculate_f1(y_true, y_pred):
     """validate the model using F1 score
 
@@ -20,6 +21,7 @@ def calculate_f1(y_true, y_pred):
     """
     f1 = f1_score(y_true, y_pred)
     return f1
+
 
 def inference(model, x):
     """run model inference and return predicted values
@@ -34,6 +36,7 @@ def inference(model, x):
 
     y_preds = model.predict(x)
     return y_preds
+
 
 def slicing():
     """
@@ -52,8 +55,8 @@ def slicing():
     for cat in cat_cols:
         for cls in test[cat].unique():
             sliced_df = test[test[cat] == cls]
-            x_test, y_test, _, _ = process_data(sliced_df, categorical_features=cat_cols, 
-                                                label="salary", encoder=encoder, lb=lb, training=False)
+            x_test, y_test, _, _ = process_data(
+                sliced_df, categorical_features=cat_cols, label="salary", encoder=encoder, lb=lb, training=False)
 
             y_pred = trained_model.predict(x_test)
             f1 = calculate_f1(y_test, y_pred)
