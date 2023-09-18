@@ -39,7 +39,7 @@ def test_inference_above():
         60,
         'United-States']
     test_case_above_df = pd.DataFrame(
-        test_case_above,
+        [test_case_above],
         columns=[
             'age',
             'workclass',
@@ -92,7 +92,7 @@ def test_inference_below():
         43,
         'United-States']
     test_case_below_df = pd.DataFrame(
-        test_case_below,
+        [test_case_below],
         columns=[
             'age',
             'workclass',
