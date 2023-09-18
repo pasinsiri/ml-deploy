@@ -57,10 +57,10 @@ def test_inference_above():
             'native-country'])
 
     x, _, _, _ = process_data(
-        test_case_above_df, 
-        cat_cols=get_categorical_columns(), 
-        encoder=encoder, 
-        lb=lb, 
+        test_case_above_df,
+        cat_cols=get_categorical_columns(),
+        encoder=encoder,
+        lb=lb,
         training=False
     )
     pred = inference(model, x)
@@ -110,9 +110,9 @@ def test_inference_below():
             'native-country'])
 
     x, _, _, _ = process_data(
-        test_case_below_df, 
-        cat_cols=get_categorical_columns(), 
-        encoder=encoder, 
+        test_case_below_df,
+        cat_cols=get_categorical_columns(),
+        encoder=encoder,
         lb=lb, training=False
     )
     pred = inference(model, x)

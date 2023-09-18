@@ -2,7 +2,6 @@
 Test script for preprocessing
 """
 import pandas as pd
-import numpy as np
 import pytest
 from joblib import load
 from .preprocessing import process_data

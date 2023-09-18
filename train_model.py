@@ -7,7 +7,7 @@ import joblib
 from functions.cleaning import get_categorical_columns, clean_data
 from functions.preprocessing import process_data
 
-from sklearn.model_selection import train_test_split, KFold, cross_val_score
+from sklearn.model_selection import KFold, cross_val_score
 from sklearn.ensemble import GradientBoostingClassifier
 
 # Add code to load in the data.
