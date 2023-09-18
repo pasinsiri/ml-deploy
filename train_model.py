@@ -13,21 +13,11 @@ from sklearn.ensemble import GradientBoostingClassifier
 # Add code to load in the data.
 raw_df = pd.read_csv('./data/census.csv', skipinitialspace=True)
 
-# cat_features = [
-#     "workclass",
-#     "education",
-#     "marital-status",
-#     "occupation",
-#     "relationship",
-#     "race",
-#     "sex",
-#     "native-country",
-# ]
 cat_features = get_categorical_columns()
 df = clean_data(raw_df)
 
 X_train, y_train, encoder, lb = process_data(
-    df, categorical_features=cat_features, label="salary", training=True
+    df, cat_cols=cat_features, label="salary", training=True
 )
 
 # Train and save a model.
