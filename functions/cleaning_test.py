@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from cleaning import clean_data
+from .cleaning import clean_data
 
 @pytest.fixture
 def data():
