@@ -3,7 +3,7 @@ Test script for preprocessing
 """
 import pandas as pd
 import pytest
-from joblib import load
+import joblib
 from .preprocessing import process_data
 
 
@@ -43,8 +43,8 @@ def test_process_encoder(data):
     """
     Check consistency of process_data in parts of encoder and label binarizer
     """
-    encoder_test = load("data/model/encoder.joblib")
-    lb_test = load("data/model/lb.joblib")
+    encoder_test = joblib.load('model/encoder.joblib')
+    lb_test = joblib.load('model/lb.joblib')
 
     _, _, encoder, lb = process_data(
         data,
