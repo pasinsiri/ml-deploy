@@ -1,9 +1,9 @@
 import pandas as pd
+import joblib
 import pytest
 from .cleaning import get_categorical_columns
 from .preprocessing import process_data
 from .model_evaluation import inference
-from joblib import load
 
 
 @pytest.fixture
@@ -19,9 +19,9 @@ def test_inference_above():
     """
     Check inference performance for case salary >50k
     """
-    model = load('model/model.joblib')
-    encoder = load('model/encoder.joblib')
-    lb = load('/model/lb.joblib')
+    model = joblib.load('model/model.joblib')
+    encoder = joblib.load('model/encoder.joblib')
+    lb = joblib.load('/model/lb.joblib')
 
     test_case_above = [
         40,
@@ -72,9 +72,9 @@ def test_inference_below():
     """
     Check inference performance for case salary <=50K
     """
-    model = load('model/model.joblib')
-    encoder = load('model/encoder.joblib')
-    lb = load('/model/lb.joblib')
+    model = joblib.load('model/model.joblib')
+    encoder = joblib.load('model/encoder.joblib')
+    lb = joblib.load('/model/lb.joblib')
 
     test_case_below = [
         31,
