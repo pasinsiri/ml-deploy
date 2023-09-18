@@ -152,9 +152,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# data
-data
-
 # local files (do not need tracking)
 first.ipynb
 note.txt
