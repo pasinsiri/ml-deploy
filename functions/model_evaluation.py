@@ -3,8 +3,8 @@ import logging
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score
-from cleaning import get_categorical_columns, clean_data
-from preprocessing import process_data
+from .cleaning import get_categorical_columns, clean_data
+from .preprocessing import process_data
 # from joblib import load
 # import src.common_functions
 
