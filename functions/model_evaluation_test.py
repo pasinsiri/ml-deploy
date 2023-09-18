@@ -19,9 +19,9 @@ def test_inference_above():
     """
     Check inference performance for case salary >50k
     """
-    model = load("data/model/model.joblib")
-    encoder = load("data/model/encoder.joblib")
-    lb = load("data/model/lb.joblib")
+    model = load('model/model.joblib')
+    encoder = load('model/encoder.joblib')
+    lb = load('/model/lb.joblib')
 
     test_case_above = [
         40,
@@ -72,9 +72,9 @@ def test_inference_below():
     """
     Check inference performance for case salary <=50K
     """
-    model = load("data/model/model.joblib")
-    encoder = load("data/model/encoder.joblib")
-    lb = load("data/model/lb.joblib")
+    model = load('model/model.joblib')
+    encoder = load('model/encoder.joblib')
+    lb = load('/model/lb.joblib')
 
     test_case_below = [
         31,
