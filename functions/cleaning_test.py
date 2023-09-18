@@ -8,7 +8,7 @@ def data():
     """
     Load dataset
     """
-    df = pd.read_csv("data/raw/census.csv", skipinitialspace=True)
+    df = pd.read_csv('data/census.csv', skipinitialspace=True)
     df = clean_data(df)
     return df
 
