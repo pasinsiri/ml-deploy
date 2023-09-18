@@ -11,7 +11,7 @@ from sklearn.model_selection import KFold, cross_val_score
 from sklearn.ensemble import GradientBoostingClassifier
 
 # Add code to load in the data.
-raw_df = pd.read_csv('./data/census.csv', skipinitialspace=True)
+raw_df = pd.read_csv('data/census.csv', skipinitialspace=True)
 
 cat_features = get_categorical_columns()
 df = clean_data(raw_df)

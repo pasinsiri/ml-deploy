@@ -13,7 +13,7 @@ def data():
     """
     Load dataset
     """
-    df = pd.read_csv('./data/census.csv')
+    df = pd.read_csv('data/census.csv')
     return clean_data(df)
 
 
