@@ -35,7 +35,6 @@ def inference(model, x):
     y_preds = model.predict(x)
     return y_preds
 
-# def check_score():
 def slicing():
     """
     slice the data by features
