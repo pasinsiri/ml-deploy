@@ -54,7 +54,11 @@ def slicing():
         for cls in test[cat].unique():
             sliced_df = test[test[cat] == cls]
             x_test, y_test, _, _ = process_data(
-                sliced_df, categorical_features=cat_cols, label="salary", encoder=encoder, lb=lb, training=False)
+                sliced_df,
+                categorical_features=cat_cols,
+                label='salary',
+                encoder=encoder, lb=lb, training=False
+            )
 
             y_pred = trained_model.predict(x_test)
             f1 = calculate_f1(y_test, y_pred)
