@@ -7,6 +7,7 @@ import pytest
 from joblib import load
 from .preprocessing import process_data
 
+
 @pytest.fixture
 def data():
     """

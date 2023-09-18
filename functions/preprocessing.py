@@ -3,7 +3,14 @@ import pandas as pd
 import logging
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
-def process_data(data, cat_cols: list, training: bool, label: str = None, encoder = None, lb = None):
+
+def process_data(
+        data,
+        cat_cols: list,
+        training: bool,
+        label: str = None,
+        encoder=None,
+        lb=None):
     # Create x and y dataframes
     x = data.copy()
     if label is not None:
@@ -14,7 +21,7 @@ def process_data(data, cat_cols: list, training: bool, label: str = None, encode
     # Split categorical / numerical columns
     x_cat = x[cat_cols]
     x_num = x.drop(*[cat_cols], axis=1)
-    
+
     # Trim string columns
     for c in x_cat.columns:
         x_cat[c] = x_cat[c].str.strip()
@@ -30,7 +37,8 @@ def process_data(data, cat_cols: list, training: bool, label: str = None, encode
         try:
             y = lb.transform(y.values).ravel()
         except AttributeError:
-            logging.info('y is not passed. it is ignored since training is set to False. Job will continue')
+            logging.info(
+                'y is not passed. it is ignored since training is set to False. Job will continue')
 
     x = np.concatenate([x_cat, x_num], axis=1)
     return x, y, encoder, lb
