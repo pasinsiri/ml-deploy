@@ -2,10 +2,13 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
-def process_data(data, cat_cols: list, label: str, training: bool, encoder = None, lb = None):
+def process_data(data, cat_cols: list, training: bool, label: str = None, encoder = None, lb = None):
     # Create x and y dataframes
     x = data.copy()
-    y = x.pop(label)
+    if label is not None:
+        y = x.pop(label)
+    else:
+        y = np.array([])
 
     # Split categorical / numerical columns
     x_cat = x[cat_cols]
