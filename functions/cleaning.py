@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def get_categorical_columns():
     cat_cols = [
         "workclass",
@@ -12,6 +13,7 @@ def get_categorical_columns():
         "native-country",
     ]
     return cat_cols
+
 
 def clean_data(raw_df):
     df = raw_df.copy()
