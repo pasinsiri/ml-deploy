@@ -1,12 +1,13 @@
 import numpy as np
 import pandas as pd
+import logging
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
 def process_data(data, cat_cols: list, training: bool, label: str = None, encoder = None, lb = None):
     # Create x and y dataframes
     x = data.copy()
     if label is not None:
-        y = x.pop(label)
+        y = x.pop(label).values
     else:
         y = np.array([])
 
@@ -23,10 +24,14 @@ def process_data(data, cat_cols: list, training: bool, label: str = None, encode
         x_cat = encoder.fit_transform(x_cat)
 
         lb = LabelBinarizer()
-        y = lb.fit_transform(y.values).ravel()
+        y = lb.fit_transform(y).ravel()
     else:
         x_cat = encoder.transform(x_cat)
-        y = lb.transform(y.values).ravel()
+        try:
+            y = lb.transform(y.values).ravel()
+        # Catch the case where y is None because we're doing inference.
+        except AttributeError:
+            logging.info('y is not passed. it is ignored since training is set to False. Job will continue')
 
     x = np.concatenate([x_cat, x_num], axis=1)
     return x, y, encoder, lb
