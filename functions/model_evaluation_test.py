@@ -21,7 +21,7 @@ def test_inference_above():
     """
     model = joblib.load('model/model.joblib')
     encoder = joblib.load('model/encoder.joblib')
-    lb = joblib.load('/model/lb.joblib')
+    lb = joblib.load('model/lb.joblib')
 
     test_case_above = [
         40,
@@ -74,7 +74,7 @@ def test_inference_below():
     """
     model = joblib.load('model/model.joblib')
     encoder = joblib.load('model/encoder.joblib')
-    lb = joblib.load('/model/lb.joblib')
+    lb = joblib.load('model/lb.joblib')
 
     test_case_below = [
         31,
