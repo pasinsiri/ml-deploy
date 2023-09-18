@@ -16,15 +16,15 @@ raw_df = pd.read_csv('./data/census.csv', skipinitialspace=True)
 cat_features = get_categorical_columns()
 df = clean_data(raw_df)
 
-X_train, y_train, encoder, lb = process_data(
+x_train, y_train, encoder, lb = process_data(
     df, cat_cols=cat_features, label="salary", training=True
 )
 
 # Train and save a model.
 cv = KFold(n_splits=10, shuffle=True, random_state=42)
 clf = GradientBoostingClassifier(n_estimators=50)
-clf.fit(X_train, y_train)
-scores = cross_val_score(clf, X_train, y_train, scoring='accuracy', cv=cv)
+clf.fit(x_train, y_train)
+scores = cross_val_score(clf, x_train, y_train, scoring='accuracy', cv=cv)
 logging.info(f'Average accuracy from cross-validation on training data = {np.mean(scores)}')
 joblib.dump(clf, 'model/model.joblib')
 joblib.dump(encoder, 'model/encoder.joblib')
