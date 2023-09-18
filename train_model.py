@@ -26,7 +26,8 @@ clf = GradientBoostingClassifier(n_estimators=50)
 clf.fit(x_train, y_train)
 scores = cross_val_score(clf, x_train, y_train, scoring='accuracy', cv=cv)
 logging.info(
-    f'Average accuracy from cross-validation on training data = {np.mean(scores)}')
+    f'Average accuracy from cross-validation  \
+        on training data = {np.mean(scores)}')
 joblib.dump(clf, 'model/model.joblib')
 joblib.dump(encoder, 'model/encoder.joblib')
 joblib.dump(lb, 'model/lb.joblib')

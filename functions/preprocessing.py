@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import logging
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
@@ -38,7 +37,7 @@ def process_data(
             y = lb.transform(y.values).ravel()
         except AttributeError:
             logging.info(
-                'y is not passed. it is ignored since training is set to False. Job will continue')
+                'y is not passed. it is ignored since training is set to False')
 
     x = np.concatenate([x_cat, x_num], axis=1)
     return x, y, encoder, lb

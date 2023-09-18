@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import pytest
 from .cleaning import get_categorical_columns
 from .preprocessing import process_data
@@ -57,8 +56,13 @@ def test_inference_above():
             'hours-per-week',
             'native-country'])
 
-    x, _, _, _ = process_data(test_case_above_df, cat_cols=get_categorical_columns(
-    ), encoder=encoder, lb=lb, training=False)
+    x, _, _, _ = process_data(
+        test_case_above_df, 
+        cat_cols=get_categorical_columns(), 
+        encoder=encoder, 
+        lb=lb, 
+        training=False
+    )
     pred = inference(model, x)
     y = lb.inverse_transform(pred)[0]
     assert y == ">50K"
@@ -105,8 +109,12 @@ def test_inference_below():
             'hours-per-week',
             'native-country'])
 
-    x, _, _, _ = process_data(test_case_below_df, cat_cols=get_categorical_columns(
-    ), encoder=encoder, lb=lb, training=False)
+    x, _, _, _ = process_data(
+        test_case_below_df, 
+        cat_cols=get_categorical_columns(), 
+        encoder=encoder, 
+        lb=lb, training=False
+    )
     pred = inference(model, x)
     y = lb.inverse_transform(pred)[0]
     assert y == "<=50K"
