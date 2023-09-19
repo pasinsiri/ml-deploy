@@ -32,3 +32,6 @@ logging.info(
 joblib.dump(clf, 'model/model.joblib')
 joblib.dump(encoder, 'model/encoder.joblib')
 joblib.dump(lb, 'model/lb.joblib')
+
+# slice the data
+slicing()
