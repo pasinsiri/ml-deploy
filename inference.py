@@ -1,8 +1,7 @@
 import os
 import joblib
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import Union, Optional
 from functions.preprocessing import process_data
 
 # instantiate FastAPI app
