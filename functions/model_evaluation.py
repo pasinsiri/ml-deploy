@@ -1,24 +1,25 @@
 import pandas as pd
 import logging
 import joblib
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import f1_score
+from sklearn.model_selection import train_test_split, cross_val_score
 from .cleaning import get_categorical_columns
 from .preprocessing import process_data
 
 
-def calculate_f1(y_true, y_pred):
-    """validate the model using F1 score
+def calculate_cross_validation_score(classifier, x_train, y_train, cv):
+    """validate the model using cross-validation F1 score
 
     Args:
-        y_true: known labels (binarized)
-        y_pred: predicted labels (binarized)
+        classifier: a fitted scikit-learn model
+        x_train: independent variables used to train the model
+        y_train: dependent variables used to train the model
+        cv: a cross-validation scikit-learn object
 
     Returns:
-        float: F1 score
+        score: cross-validation score
     """
-    f1 = f1_score(y_true, y_pred)
-    return f1
+    score = cross_val_score(classifier, x_train, y_train, scoring='f1', cv=cv)
+    return score
 
 
 def inference(model, x):
