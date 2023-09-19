@@ -3,7 +3,7 @@ import logging
 import joblib
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import f1_score
-from .cleaning import get_categorical_columns
+from .cleaning import get_categorical_columns, clean_data
 from .preprocessing import process_data
 
 
@@ -43,6 +43,7 @@ def slicing():
     slice the data by features
     """
     df = pd.read_csv("data/census.csv")
+    df = clean_data(df)
     _, test = train_test_split(df, test_size=0.20)
 
     trained_model = joblib.load("model/model.joblib")
@@ -57,7 +58,7 @@ def slicing():
             sliced_df = test[test[cat] == cls]
             x_test, y_test, _, _ = process_data(
                 sliced_df,
-                categorical_features=cat_cols,
+                cat_cols=cat_cols,
                 label='salary',
                 encoder=encoder, lb=lb, training=False
             )
