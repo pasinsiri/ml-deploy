@@ -6,6 +6,7 @@ import logging
 import joblib
 from functions.cleaning import get_categorical_columns, clean_data
 from functions.preprocessing import process_data
+from functions.model_evaluation import calculate_cross_validation_score, slicing
 
 from sklearn.model_selection import KFold, cross_val_score
 from sklearn.ensemble import GradientBoostingClassifier
@@ -21,12 +22,12 @@ x_train, y_train, encoder, lb = process_data(
 )
 
 # Train and save a model.
-cv = KFold(n_splits=10, shuffle=True, random_state=42)
+cv = KFold(n_splits=5, shuffle=True, random_state=42)
 clf = GradientBoostingClassifier(n_estimators=50)
 clf.fit(x_train, y_train)
-scores = cross_val_score(clf, x_train, y_train, scoring='accuracy', cv=cv)
+scores = calculate_cross_validation_score(clf, x_train, y_train, cv)
 logging.info(
-    f'Average accuracy from cross-validation  \
+    f'Average F1 score from cross-validation  \
         on training data = {np.mean(scores)}')
 joblib.dump(clf, 'model/model.joblib')
 joblib.dump(encoder, 'model/encoder.joblib')
