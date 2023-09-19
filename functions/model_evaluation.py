@@ -2,6 +2,7 @@ import pandas as pd
 import logging
 import joblib
 from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import f1_score
 from .cleaning import get_categorical_columns
 from .preprocessing import process_data
 
@@ -62,7 +63,7 @@ def slicing():
             )
 
             y_pred = trained_model.predict(x_test)
-            f1 = calculate_f1(y_test, y_pred)
+            f1 = f1_score(y_test, y_pred)
             line = f'[{cat} = {cls}]: F1 Score = {f1}'
             logging.info(line)
             slice_values.append(line)
