@@ -25,7 +25,7 @@ x_train, y_train, encoder, lb = process_data(
 cv = KFold(n_splits=5, shuffle=True, random_state=42)
 clf = GradientBoostingClassifier(n_estimators=50)
 clf.fit(x_train, y_train)
-scores = calculate_cross_validation_score(clf, x_train, y_train, cv)
+scores = cv_score(clf, x_train, y_train, cv)
 logging.info(
     f'Average F1 score from cross-validation  \
         on training data = {np.mean(scores)}')
