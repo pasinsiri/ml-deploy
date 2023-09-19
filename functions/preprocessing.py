@@ -35,7 +35,7 @@ def process_data(
         x_cat = encoder.transform(x_cat)
         try:
             y = lb.transform(y).ravel()
-        except AttributeError:
+        except:
             logging.info(
                 'y is not passed. it is ignored  \
                     since training is set to False')
