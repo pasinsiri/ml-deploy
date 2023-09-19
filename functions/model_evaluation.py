@@ -7,7 +7,7 @@ from .cleaning import get_categorical_columns, clean_data
 from .preprocessing import process_data
 
 
-def calculate_cross_validation_score(classifier, x_train, y_train, cv):
+def cv_score(classifier, x_train, y_train, cv):
     """validate the model using cross-validation F1 score
 
     Args:

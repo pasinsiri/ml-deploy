@@ -6,9 +6,9 @@ import logging
 import joblib
 from functions.cleaning import get_categorical_columns, clean_data
 from functions.preprocessing import process_data
-from functions.model_evaluation import calculate_cross_validation_score, slicing
+from functions.model_evaluation import cv_score, slicing
 
-from sklearn.model_selection import KFold, cross_val_score
+from sklearn.model_selection import KFold
 from sklearn.ensemble import GradientBoostingClassifier
 
 # Add code to load in the data.
