@@ -42,7 +42,7 @@ def slicing():
     """
     slice the data by features
     """
-    df = pd.read_csv("data/prepared/census.csv")
+    df = pd.read_csv("data/census.csv")
     _, test = train_test_split(df, test_size=0.20)
 
     trained_model = joblib.load("model/model.joblib")
