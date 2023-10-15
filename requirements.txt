@@ -1,10 +1,9 @@
-numpy==1.19.0
-pandas==1.1.0
-scikit-learn==1.0
+numpy
+pandas
+scikit-learn
 pytest
 requests
 fastapi
-uvicorn==0.22.0
+uvicorn
 gunicorn
-flake8==5.0.4
-importlib-metadata==4.2.0
+flake8
