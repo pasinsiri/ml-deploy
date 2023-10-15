@@ -7,3 +7,4 @@ fastapi
 uvicorn==0.22.0
 gunicorn
 flake8==5.0.4
+importlib-metadata==4.2.0
