@@ -40,7 +40,7 @@ async def startup_event():
     lb = joblib.load('model/lb.joblib')
 
 
-@app.post("/inference/")
+@app.post("/inference")
 async def ingest_data(inference: InputData):
     data = {
         'age': inference.age,
