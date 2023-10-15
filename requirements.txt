@@ -6,4 +6,4 @@ requests
 fastapi
 uvicorn
 gunicorn
-flake8
+flake8==6.0.0
