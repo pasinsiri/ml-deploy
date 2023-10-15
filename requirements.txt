@@ -1,9 +1,9 @@
-numpy
-pandas
-scikit-learn
+numpy==1.19.0
+pandas==1.1.0
+scikit-learn==1.0
 pytest
 requests
 fastapi
-uvicorn
+uvicorn==0.22.0
 gunicorn
-flake8==6.0.0
+flake8==5.0.4
