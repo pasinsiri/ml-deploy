@@ -1,9 +1,9 @@
-numpy==1.21.1
-pandas==1.3.4
-scikit-learn==1.0.2
+numpy
+pandas
+scikit-learn
 pytest
 requests
-fastapi==0.65.2
+fastapi
 uvicorn
 gunicorn
 flake8
