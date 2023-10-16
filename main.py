@@ -29,7 +29,7 @@ class InputData(BaseModel):
 
 @app.get("/")
 async def greetings():
-    return "Welcome to our model API"
+    return "Hello! This is a machine learning model API"
 
 
 @app.on_event("startup")
