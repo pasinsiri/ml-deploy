@@ -12,7 +12,7 @@ def test_root():
     """
     r = client.get("/")
     assert r.status_code == 200
-    assert r.json() == "Hello! This is a machine learning model API"
+    assert r.json() == "Welcome to our model API"
 
 
 def test_inference_upper():
