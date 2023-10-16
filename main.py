@@ -1,6 +1,5 @@
 import joblib
 import pandas as pd
-import argparse
 from fastapi import FastAPI
 from pydantic import BaseModel
 from functions.preprocessing import process_data
