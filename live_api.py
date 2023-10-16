@@ -3,6 +3,8 @@ POST live API
 """
 
 import requests
+import json
+
 
 url = 'https://ml-deployment-fastapi.onrender.com/inference/'
 
@@ -24,3 +26,8 @@ sample = {
 }
 
 # post a request
+res = requests.post(url, data=json.dumps(sample))
+assert res.status_code == 200
+
+answer = res.json()['prediction']
+print(f'Status code is {res.status_code}. The answer is {answer}')
