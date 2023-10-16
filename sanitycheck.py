@@ -152,9 +152,8 @@ def run_sanity_check(test_dir):
                 "One or more of your test cases for POST() \
                     do not seem to be testing the contents of the response.\n")
 
-        if len(
-                test_functions_for_post) >= 2 and \
-                    COUNT_POST_METHOD_TEST_FOR_INFERENCE_RESULT < 2:
+        if len(test_functions_for_post) >= 2 and \
+                COUNT_POST_METHOD_TEST_FOR_INFERENCE_RESULT < 2:
             print(FAIL_COLOR + f"[{WARNING_COUNT}]")
             WARNING_COUNT += 1
             print(
