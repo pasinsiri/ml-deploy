@@ -34,7 +34,7 @@ def process_data(
     else:
         x_cat = encoder.transform(x_cat)
         try:
-            y = lb.transform(y).ravel()
+            y = lb.fit_transform(y).ravel()
         except (ValueError, AttributeError):
             logging.info(
                 'y is not passed. it is ignored  \
