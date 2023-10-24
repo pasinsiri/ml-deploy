@@ -121,7 +121,7 @@ def test_inference_above_2():
     assert y == ">50K"
 
 
-def test_inference_below():
+def test_inference_below_1():
     """
     Check inference performance for case salary <=50K
     """
@@ -143,6 +143,58 @@ def test_inference_below():
         0,
         0,
         43,
+        'United-States']
+    test_case_below_df = pd.DataFrame(
+        [test_case_below],
+        columns=[
+            'age',
+            'workclass',
+            'fnlgt',
+            'education',
+            'education-num',
+            'marital-status',
+            'occupation',
+            'relationship',
+            'race',
+            'sex',
+            'capital-gain',
+            'capital-loss',
+            'hours-per-week',
+            'native-country'])
+
+    x, _, _, _ = process_data(
+        test_case_below_df,
+        cat_cols=get_categorical_columns(),
+        encoder=encoder,
+        lb=lb, training=False
+    )
+    pred = inference(model, x)
+    y = lb.inverse_transform(pred)[0]
+    assert y == "<=50K"
+
+
+def test_inference_below_2():
+    """
+    Check inference performance for case salary <=50K
+    """
+    model = joblib.load('model/model.joblib')
+    encoder = joblib.load('model/encoder.joblib')
+    lb = joblib.load('model/lb.joblib')
+
+    test_case_below = [
+        57,
+        'State-gov',
+        39380,
+        'HS-grad',
+        9,
+        'Separated',
+        'Other-service',
+        'Not-in-family',
+        'White',
+        'Female',
+        0,
+        0,
+        35,
         'United-States']
     test_case_below_df = pd.DataFrame(
         [test_case_below],
