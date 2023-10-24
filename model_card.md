@@ -15,7 +15,7 @@ The dataset contains 32,561 rows of samples and 15 columns including *salary* wh
 In training the model we implemented a 5-Fold cross validation with the entire dataset.
 
 ## Metrics
-We used F1 score as our metric. In the cross validation process, we compute the average F1 score from all the splits to represent the overall performance of the model.
+We used F1 score as our metric. In the cross validation process, we compute the average F1 score from all the splits to represent the overall performance of the model. From the cross-validation process, the average F1 score is 0.66 with the minimum score being 0.63 and the maximum one being 0.68.
 
 ## Ethical Considerations
 Features that have impact on a person's salary is not limited to the ones given in the data. There should be other features that can influence how much a person would be paid.
