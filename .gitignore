@@ -154,6 +154,7 @@ cython_debug/
 
 # local files (do not need tracking)
 first.ipynb
+test.ipynb
 note.txt
 
 .DS_Store
